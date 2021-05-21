@@ -1,5 +1,5 @@
 const express = require('express');
-const dbHelper = require("../dbContext")
+const dbHelper = require("../db")
 const router = express.Router();
 
 router.post('/', function(request, response) {
