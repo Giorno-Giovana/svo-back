@@ -1,8 +1,8 @@
 module.exports = class Task {
-    constructor(id, sector, location, workers) {
+    constructor(id, deadline, sector, location, workers) {
         this.id = id;
         this.status = 0;
-        this.time = Date;
+        this.time = { start: new Date, deadline: deadline};
         this.sector = sector;
         this.location = location;
         this.workers = workers;

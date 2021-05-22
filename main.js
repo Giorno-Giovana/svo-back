@@ -25,8 +25,8 @@ server.onMessage = (connect, data) => {
             workersController.addWorker(type, location);
         },
         'addTask': () => {
-            let {id, sector, location, workers} = data['addTask'];
-            tasksController.addTask(sector, location, workers);
+            let {id, deadline, sector, location, workers} = data['addTask'];
+            tasksController.addTask(deadline, sector, location, workers);
             server.send({tasks: tasksController.tasks});
         },
         'claim': () => {
