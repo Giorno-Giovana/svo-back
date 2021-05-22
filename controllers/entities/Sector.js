@@ -4,11 +4,7 @@ module.exports = class Sector {
         this.type = type;
         this.size = size;
         this.peredictor = predictor;
-        this.status_ = {
-            value: 0,
-            time: new Date,
-            expected: predictor.call(this.status_),
-        };
+        this.status_ = 0;
     }
 
     set status(status) {
