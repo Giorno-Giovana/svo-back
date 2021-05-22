@@ -4,7 +4,6 @@ module.exports = class Task {
         this.status = 0;
         this.time = { start: new Date, deadline: deadline};
         this.sector = sector;
-        this.cost = sector.cost();
         this.location = location;
         this.workers = workers;
     }

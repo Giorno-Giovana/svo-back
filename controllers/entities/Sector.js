@@ -7,11 +7,6 @@ module.exports = class Sector {
         this.status_ = 0;
     }
 
-    set status(status) {
-        this.status_.value = status;
-        this.status_.time = new Date;
-    }
-
     update() {
         this.status_.expected = predictor.call(this.status_);
     }
