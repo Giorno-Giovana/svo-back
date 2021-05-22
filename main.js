@@ -42,5 +42,4 @@ server.onMessage = (connect, data) => {
     methods[data.method]();
 }
 
-setInterval(() => server.send({workers: workersController.workers}), 1000);
-setInterval(() => server.send({sectors: sectorsController.sectors}), 1000);
+setInterval(() => server.send({workers: workersController.workers, sectors: sectorsController.sectors}), 1000);
