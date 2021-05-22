@@ -30,4 +30,29 @@ module.exports = class WorkersController {
 
         this.workers[id] = worker;
     }
+
+    getFreeWorkers() {
+        let j = 0;
+        let result;
+        for(worker of this.workers.values())
+        {
+            if(worker.status.tasks.length < 3) {
+                result[j++] = worker;
+            }
+        }
+
+        return result;
+    }
+
+    getTypeAmounts(workers)
+    {
+        let result = new Map;
+        for(type of types) {
+            result[type] = 0;
+        }
+
+        for(worker of workers) {
+            result[worker.type]++;
+        }
+    }
 }
