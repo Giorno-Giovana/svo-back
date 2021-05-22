@@ -1,4 +1,4 @@
-var Worker = require('entities/Worker');
+var Worker = require('./entities/Worker');
 
 var i = 0;
 var types = ['truck', 'scout', 'brush', 'reagentBrush', 'excavator', 'loader'];

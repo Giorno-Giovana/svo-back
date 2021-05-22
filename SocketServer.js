@@ -13,7 +13,7 @@ module.exports = class SocketServer {
             console.log('<Новое соединение ' + id + '>');
             connect.on('message', function(message) {
                 connect.sendResponce = function(data) {
-                    message = JSON.stringify(data);
+                    let message = JSON.stringify(data);
                     this.send(message);
                 }
                 server.onMessageHandler(connect, JSON.parse(message));
@@ -29,7 +29,7 @@ module.exports = class SocketServer {
     }
 
     send(data) {
-        message = JSON.stringify(data);
+        let message = JSON.stringify(data);
         for (var connect of this.webSocket.clients) {
             connect.send(message);
         }
