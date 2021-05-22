@@ -1,5 +1,5 @@
-module.exports = class weather{
+module.exports = class Weather {
     static get(){
-        return Math.random() * 10;
+        return Math.random() * 30;
     }
 }
