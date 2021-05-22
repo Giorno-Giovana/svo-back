@@ -28,7 +28,7 @@ server.onMessage = (connect, data) => {
             server.send({tasks: tasksController.tasks});
         },
         'claim': () => {
-            let {id, status, volume, location} = data;
+            let {id, status, volume, location} = data['claim'];
             sectorsController.sectors[id].status = volume;
             if (status == 2) {
                 // TODO: Уведомление о нужде
