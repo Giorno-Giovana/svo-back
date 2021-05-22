@@ -3,7 +3,7 @@ var WebSocketServer = new require('ws');
 module.exports = class SocketServer {
     constructor(config) {
         this.webSocket = new WebSocketServer.Server(config);
-        this.onMessageHandler = function(data) {
+        this.onMessageHandler = function(connect, data) {
             console.log(data);
             connect.sendResponce({status: 200});
         }
