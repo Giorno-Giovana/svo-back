@@ -7,9 +7,9 @@ module.exports = class TasksController {
         this.tasks = new Map;
     }
 
-    addTask(deadline, sector, location, workers) {
+    addTask(sector, location, workers) {
         let id = ++i;
-        let task = new Task(id, deadline, sector, location, workers);
+        let task = new Task(id, sector, location, workers);
 
         this.tasks[id] = task;
     }
