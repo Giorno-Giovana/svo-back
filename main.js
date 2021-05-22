@@ -2,11 +2,13 @@ const SocketServer = require("./SocketServer");
 const WorkersController = require("./controllers/WorkersController");
 const TasksController = require("./controllers/TasksController");
 const SectorsController = require("./controllers/SectorsController");
+const NotifyController = require("./controllers/NotifyController");
 const predictor = require("./shared/predictor");
 
 var workersController = new WorkersController();
 var tasksController = new TasksController();
 var sectorsController = new SectorsController();
+var notifyController = new NotifyController();
 
 var server = new SocketServer({port: 3257});
 
@@ -31,7 +33,8 @@ server.onMessage = (connect, data) => {
             let {id, status, volume, location} = data['claim'];
             sectorsController.sectors[id].status = volume;
             if (status == 2) {
-                // TODO: Уведомление о нужде
+                notifyController.addNotify(id, volume, location);
+                server.send({notify: notifyController.notifies})
             }
             server.send({sectors: sectorsController.sectors});
         }
